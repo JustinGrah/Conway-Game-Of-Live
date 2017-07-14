@@ -16,11 +16,9 @@ $(document).ready(function(){
 		var set_cell_status = function(row, col, alive){
 			if(alive === true){
 				cell_matrix[row][col].addClass('alive');
-			}
-		 else {
+			} else {
 				cell_matrix[row][col].removeClass('alive');
 			}
-
 		};
 
 		var create_field = function() {
@@ -58,7 +56,6 @@ $(document).ready(function(){
 					set_cell_status(i,j,false);
 				}
 			}
-			
 		};
 
 		create_field();

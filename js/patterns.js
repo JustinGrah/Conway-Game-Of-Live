@@ -162,6 +162,8 @@ $(document).ready(function(){
 			]
 		};
 
+		console.log(patterns.size());
+
 		var get = function (name){
 
 			if(patterns[name] === undefined){
@@ -184,6 +186,22 @@ $(document).ready(function(){
 			}
 			console.log(count);
 		};
+
+
+		function log (v, i, ar) {
+    /* Die Variable i enthält den Index des Wertes v
+       im Array ar. Diese drei Parameter werden an die
+       Callback-Funktion bei forEach übergeben. */
+    	if (console && console.dir) {
+        // Ausgabe einer Objektstruktur auf die Konsole
+        console.dir(v);
+    	}
+		}
+
+		var get_obj = function (object) {
+			object.foreach(log());
+		};
+
 
 		return{
 			get:get,

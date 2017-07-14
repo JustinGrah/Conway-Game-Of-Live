@@ -13,7 +13,7 @@ $(document).ready(function(){
 			}
 		};
 
-		window.setInterval(timer, 1000);
+		window.setInterval(timer, 250);
 
 		$play_pause_button.click(function(){
 			var switch_to_pause = $(this).find('span').hasClass('glyphicon-pause');
@@ -34,6 +34,7 @@ $(document).ready(function(){
 			if(switch_to_pause === true){
 				$play_pause_button.find('span').removeClass('glyphicon-pause');
 				$play_pause_button.find('span').addClass('glyphicon-play');
+				$counter.html(0);
 				is_paused = true;
 			}
 			else{

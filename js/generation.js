@@ -9,7 +9,6 @@ $(document).ready(function(){
 
 		var set_number = function (newNumber) {
 			number = newNumber;
-			console.log(number);
 		};
 
 		var next = function(){
