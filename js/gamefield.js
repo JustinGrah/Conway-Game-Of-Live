@@ -58,6 +58,7 @@ $(document).ready(function(){
 					set_cell_status(i,j,false);
 				}
 			}
+			
 		};
 
 		create_field();

@@ -176,13 +176,18 @@ $(document).ready(function(){
 			// diese funktion soll alle namen zurückgeben
 		};
 
-		var demo = function () {
-			console.log(patterns.length);
+		var count;
+
+		var return_length = function (object) {
+			for(var i in object) {
+				count+=1;
+			}
+			console.log(count);
 		};
 
 		return{
 			get:get,
-			demo:demo,
+			return_length:return_length,
 			get_all_names: get_all_names
 		};
 
