@@ -26,7 +26,6 @@ $(document).ready(function(){
 					}
 				}
 			}
-			console.log(living_cells);
 			Conway.GameField.clear_field();
 			sort_out();
 		};

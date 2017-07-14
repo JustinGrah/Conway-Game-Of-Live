@@ -17,9 +17,6 @@ $(document).ready(function(){
 			if(alive === true){
 				cell_matrix[row][col].addClass('alive');
 			}
-			// else if(alive == 1) {
-			// 	cell_matrix[row][col].removeClass('alive');
-			// 	cell_matrix[row][col].addClass('checked');
 		 else {
 				cell_matrix[row][col].removeClass('alive');
 			}

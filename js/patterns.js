@@ -176,8 +176,13 @@ $(document).ready(function(){
 			// diese funktion soll alle namen zurückgeben
 		};
 
+		var demo = function () {
+			console.log(patterns.length);
+		};
+
 		return{
 			get:get,
+			demo:demo,
 			get_all_names: get_all_names
 		};
 
@@ -186,4 +191,3 @@ $(document).ready(function(){
 
 
 });
-
