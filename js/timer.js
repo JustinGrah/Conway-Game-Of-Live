@@ -71,5 +71,6 @@ $(document).ready(function(){
 	Conway.GameField.set_cell_status(5, 13, true);
 	Conway.GameField.set_cell_status(5, 14, true);
 
+	// Conway.Pattern.get_all_names();
 
 });

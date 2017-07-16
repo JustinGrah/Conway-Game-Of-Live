@@ -7,21 +7,17 @@ $(document).ready(function(){
 		var $drop_down = $('#selector');
 		var $drop_down_item = -1;
 
-
 		$gamefield_clr.click(function(){
 			Conway.Timer.stop_timer(true);
 			Conway.Timer.reset_timer();
 			Conway.GameField.clear_field();
 		});
 
-		var populate_drop_down = function() {
-			var figureName;
+		var populate_drop_down = function(figureName) {
 			var $drop_down_item_pattern = $('<li id="' + figureName +'" role="presentation"><a tabindex="-1">' + figureName + '</a></li>');
 			$drop_down_item = $drop_down_item_pattern.clone();
-
-			
+			$drop_down.append($drop_down_item);
 		};
-
 
     $cell_btn.click(function(){
 			var attribute = $(this).attr("title");
@@ -35,6 +31,10 @@ $(document).ready(function(){
 				Conway.GameField.set_cell_status(attribute[0],attribute[1],true);
 			}
     });
+
+		return{
+			populate_drop_down:populate_drop_down
+		}
 
   }());
 });
