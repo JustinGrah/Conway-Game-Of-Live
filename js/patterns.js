@@ -162,9 +162,9 @@ $(document).ready(function(){
 			]
 		};
 
-		console.log(patterns.size());
+		//console.log(patterns.size());
 
-		var get = function (name){
+		var get_pattern = function (name){
 
 			if(patterns[name] === undefined){
 				return false;
@@ -175,18 +175,20 @@ $(document).ready(function(){
 		};
 
 		var get_all_names = function(){
-			// diese funktion soll alle namen zurückgeben
+			var name = [];
+			for(var key in patterns) {
+				name.push(key);
+			}
+			return name;
+		};
+
+		var drp_dwn = function() {
+			for(var key in patterns) {
+				Conway.Interact.populate_drop_down(key);
+			}
 		};
 
 		var count;
-
-		var return_length = function (object) {
-			for(var i in object) {
-				count+=1;
-			}
-			console.log(count);
-		};
-
 
 		function log (v, i, ar) {
     /* Die Variable i enthält den Index des Wertes v
@@ -204,13 +206,11 @@ $(document).ready(function(){
 
 
 		return{
-			get:get,
-			return_length:return_length,
-			get_all_names: get_all_names
+			get_pattern:get_pattern,
+			get_all_names: get_all_names,
+			drp_dwn:drp_dwn
 		};
 
 	})();
-
-
 
 });
