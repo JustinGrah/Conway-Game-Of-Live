@@ -5,19 +5,37 @@ $(document).ready(function(){
     var $cell_btn = $('.cell');
 		var $gamefield_clr = $('#clear_field');
 		var $drop_down = $('#selector');
+		var $figure_item = $('#selector li');
 		var $drop_down_item = -1;
 
+		// Functions
+		$figure_item.click(function(){
+			var figure = $(this).attr("title");
+			var pattern = Conway.Pattern.get_pattern(figure);
+
+			Conway.Timer.stop_timer(true);
+			Conway.Timer.reset_timer();
+			Conway.GameField.clear_field();
+
+			if(Conway.Pattern.get_pattern(figure).length > Conway.Config.rows || pattern[0].length > Conway.Config.cols) {
+				Conway.
+			}
+
+			for(var i = 0; i < Conway.Pattern.get_pattern(figure).length; i ++) {
+				for(var j = 0; j < pattern[0].length; j++) {
+					if(pattern[i][j] == 1) {
+						Conway.GameField.set_cell_status(i,j,true);
+					}
+				}
+			}
+		});
+
+		// Listeners
 		$gamefield_clr.click(function(){
 			Conway.Timer.stop_timer(true);
 			Conway.Timer.reset_timer();
 			Conway.GameField.clear_field();
 		});
-
-		var populate_drop_down = function(figureName) {
-			var $drop_down_item_pattern = $('<li id="' + figureName +'" role="presentation"><a tabindex="-1">' + figureName + '</a></li>');
-			$drop_down_item = $drop_down_item_pattern.clone();
-			$drop_down.append($drop_down_item);
-		};
 
     $cell_btn.click(function(){
 			var attribute = $(this).attr("title");
@@ -33,7 +51,7 @@ $(document).ready(function(){
     });
 
 		return{
-			populate_drop_down:populate_drop_down
+
 		}
 
   }());
