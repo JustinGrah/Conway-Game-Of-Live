@@ -17,16 +17,21 @@ $(document).ready(function(){
 			Conway.Timer.reset_timer();
 			Conway.GameField.clear_field();
 
-			if(Conway.Pattern.get_pattern(figure).length > Conway.Config.rows || pattern[0].length > Conway.Config.cols) {
-				Conway.
-			}
+			if(!(Conway.Pattern.get_pattern(figure).length > Conway.Config.rows || pattern[0].length > Conway.Config.cols)) {
 
-			for(var i = 0; i < Conway.Pattern.get_pattern(figure).length; i ++) {
-				for(var j = 0; j < pattern[0].length; j++) {
-					if(pattern[i][j] == 1) {
-						Conway.GameField.set_cell_status(i,j,true);
+				var x = (Conway.Config.rows - Conway.Pattern.get_pattern(figure).length)/2;
+				var y = (Conway.Config.cols - pattern[0].length)/2;
+
+
+				for(var i = 0; i < Conway.Pattern.get_pattern(figure).length; i ++) {
+					for(var j = 0; j < pattern[0].length; j++) {
+						if(pattern[i][j] == 1) {
+							Conway.GameField.set_cell_status(Math.round(x)+i,Math.round(y)+j,true);
+						}
 					}
 				}
+			}else {
+				return false;
 			}
 		});
 
