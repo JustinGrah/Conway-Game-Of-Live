@@ -184,11 +184,13 @@ $(document).ready(function(){
 
 		var drp_dwn = function() {
 			for(var key in patterns) {
-				Conway.Interact.populate_drop_down(key);
+				populate_drop_down(key);
 			}
 		};
 
 		var count;
+
+		var $drop_down = $('#selector');
 
 		function log (v, i, ar) {
     /* Die Variable i enthält den Index des Wertes v
@@ -202,6 +204,13 @@ $(document).ready(function(){
 
 		var get_obj = function (object) {
 			object.foreach(log());
+		};
+
+		var populate_drop_down = function(figureName) {
+			var $drop_down_item_pattern = $('<li><a>' + figureName + '</a></li>');
+			$drop_down_item = $drop_down_item_pattern.clone();
+			$drop_down_item.attr('title',figureName);
+			$drop_down.append($drop_down_item);
 		};
 
 

@@ -54,8 +54,7 @@ $(document).ready(function(){
 		};
 
 	}());
-
-	// add a static pattern
+	Conway.Pattern.drp_dwn();
 	Conway.GameField.set_cell_status(2, 5, true);
 	Conway.GameField.set_cell_status(3, 4, true);
 	Conway.GameField.set_cell_status(3, 6, true);
