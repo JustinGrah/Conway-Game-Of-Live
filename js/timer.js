@@ -62,9 +62,6 @@ $(document).ready(function(){
 	Conway.GameField.set_cell_status(4, 6, true);
 	Conway.GameField.set_cell_status(5, 5, true);
 
-	console.log(Conway.GameField.get_cell_status(5, 5));
-	console.log(Conway.GameField.get_cell_status(1, 1));
-
 	// add a blinker
 	Conway.GameField.set_cell_status(5, 12, true);
 	Conway.GameField.set_cell_status(5, 13, true);
