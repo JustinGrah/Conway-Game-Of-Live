@@ -8,16 +8,196 @@ $(document).ready(function(){
 		var get_cell_status = function(row, col){
 			if(!((cell_matrix[row] === undefined)||(cell_matrix[row][col] === undefined))) {
 				return cell_matrix[row][col].hasClass('alive');
+			} else {
+
+				if(row < 0 && col < 0) {
+					row = ~((~row) - Conway.Config.rows);
+					col = ~((~col) - Conway.Config.cols);
+					console.log("COORDS: " + row,col);
+					return cell_matrix[row][col].hasClass('alive');
+				}
+
+				if(row >= Conway.Config.rows && col >= Conway.Config.cols) {
+					row = row - Conway.Config.rows;
+					col = col - Conway.Config.cols;
+					console.log("COORDS: " + row,col);
+					return cell_matrix[row][col].hasClass('alive');
+				}
+
+				if(row >= Conway.Config.rows && col < 0) {
+					row = row - Conway.Config.rows;
+					col = ~((~col) - Conway.Config.cols);
+					console.log("COORDS: " + row,col);
+					return cell_matrix[row][col].hasClass('alive');
+				}
+
+				if(row < 0 && col >= Conway.Config.cols) {
+					row = ~((~row) - Conway.Config.rows);
+					col = col - Conway.Config.cols;
+					console.log("COORDS: " + row,col);
+					return cell_matrix[row][col].hasClass('alive');
+				}
+
+				if(row < 0) {
+					row = ~((~row) - Conway.Config.rows);
+					console.log("COORDS: " + row,col);
+					return cell_matrix[row][col].hasClass('alive');
+				}
+
+				if(row >= Conway.Config.rows) {
+					row = row - Conway.Config.rows;
+					console.log("COORDS: " + row,col);
+					return cell_matrix[row][col].hasClass('alive');
+				}
+
+				if(col < 0) {
+					col = ~((~col) - Conway.Config.cols);
+					console.log("COORDS: " + row,col);
+					return cell_matrix[row][col].hasClass('alive');
+				}
+
+				if(col >= Conway.Config.cols) {
+					col = col - Conway.Config.cols;
+					console.log("COORDS: " + row,col);
+					return cell_matrix[row][col].hasClass('alive');
+				}
+
 			}
 
 			return false;
 		};
 
 		var set_cell_status = function(row, col, alive){
-			if(alive === true){
-				cell_matrix[row][col].addClass('alive');
+			if(!((cell_matrix[row] === undefined)||(cell_matrix[row][col] === undefined))) {
+				if(alive === true){
+					cell_matrix[row][col].addClass('alive');
+				} else {
+					cell_matrix[row][col].removeClass('alive');
+				}
 			} else {
-				cell_matrix[row][col].removeClass('alive');
+
+				if(alive === true) {
+
+					if(row < 0 && col < 0) {
+						row = ~((~row) - Conway.Config.rows);
+						col = ~((~col) - Conway.Config.cols);
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].addClass('alive');
+						return true;
+					}
+
+					if(row > Conway.Config.rows && col > Conway.Config.cols) {
+						row = row - Conway.Config.rows;
+						col = col - Conway.Config.cols;
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].addClass('alive');
+						return true;
+					}
+
+					if(row > Conway.Config.rows && col < 0) {
+						row = row - Conway.Config.rows;
+						col = ~((~col) - Conway.Config.cols);
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].addClass('alive');
+						return true;
+					}
+
+					if(row < 0 && col > Conway.Config.cols) {
+						row = ~((~row) - Conway.Config.rows);
+						col = col - Conway.Config.cols;
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].addClass('alive');
+						return true;
+					}
+
+					if(row < 0) {
+						row = ~((~row) - Conway.Config.rows);
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].addClass('alive');
+						return true;
+					}
+
+					if(row > Conway.Config.rows) {
+						row = row - Conway.Config.rows;
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].addClass('alive');
+						return true;
+					}
+
+					if(col < 0) {
+						col = ~((~col) - Conway.Config.cols);
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].addClass('alive');
+						return true;
+					}
+
+					if(col > Conway.Config.cols) {
+						col = col - Conway.Config.cols;
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].addClass('alive');
+						return true;
+					}
+				} else {
+
+					if(row < 0 && col < 0) {
+						row = ~((~row) - Conway.Config.rows);
+						col = ~((~col) - Conway.Config.cols);
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].removeClass('alive');
+						return true;
+					}
+
+					if(row > Conway.Config.rows && col > Conway.Config.cols) {
+						row = row - Conway.Config.rows;
+						col = col - Conway.Config.cols;
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].removeClass('alive');
+						return true;
+					}
+
+					if(row > Conway.Config.rows && col < 0) {
+						row = row - Conway.Config.rows;
+						col = ~((~col) - Conway.Config.cols);
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].removeClass('alive');
+						return true;
+					}
+
+					if(row < 0 && col > Conway.Config.cols) {
+						row = ~((~row) - Conway.Config.rows);
+						col = col - Conway.Config.cols;
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].removeClass('alive');
+						return true;
+					}
+
+					if(row < 0) {
+						row = ~((~row) - Conway.Config.rows);
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].removeClass('alive');
+						return true;
+					}
+
+					if(row > Conway.Config.rows) {
+						row = row - Conway.Config.rows;
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].removeClass('alive');
+						return true;
+					}
+
+					if(col < 0) {
+						col = ~((~col) - Conway.Config.cols);
+						console.log("COORDS: " + row,col);
+						cell_matrix[row][col].removeClass('alive');
+						return true;
+					}
+
+					if(col > Conway.Config.cols) {
+						col = col - Conway.Config.cols;
+						console.log("COORDS: " + row,col);
+						return true;
+					}
+				}
 			}
 		};
 

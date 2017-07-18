@@ -42,21 +42,16 @@ $(document).ready(function() {
 
       //TOP
       cells += Conway.GameField.get_cell_status(zeile - 1, spalte - 1); //TL
-
       cells += Conway.GameField.get_cell_status(zeile - 1, spalte); //TM
-
       cells += Conway.GameField.get_cell_status(zeile - 1, spalte + 1); //TR
 
-      //MIDDLE
+      // MIDDLE
       cells += Conway.GameField.get_cell_status(zeile, spalte - 1); //ML
-
-      cells += Conway.GameField.get_cell_status(zeile, spalte + 1);
+      cells += Conway.GameField.get_cell_status(zeile, spalte + 1); //MR
 
       //BOTTOM
       cells += Conway.GameField.get_cell_status(zeile + 1, spalte - 1); //BL
-
       cells += Conway.GameField.get_cell_status(zeile + 1, spalte); //BM
-
       cells += Conway.GameField.get_cell_status(zeile + 1, spalte + 1); //BR
 
       return cells;
